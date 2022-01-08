@@ -8,15 +8,14 @@ import javax.validation.constraints.NotNull
 
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
 data class CartaoCreditoDto(
-    val id: Long? = null,
-    val numero: String? = null,
-    val bandeira: BandeiraCartao? = null,
+    val numero: String,
+    val bandeira: BandeiraCartao,
     val codigoSeguranca: String,
     val dataExpiracao: String,
     val nomeTitular: String,
-    val email: String? = null,
-    val numeroToken: String? = null,
+    val email: String,
+    val numeroToken: String,
     @NotNull
-    val usuario: UsuarioDto = UsuarioDto(),
+    val usuario: UsuarioDto,
     var isSalvo: Boolean = false
 ) : Serializable
