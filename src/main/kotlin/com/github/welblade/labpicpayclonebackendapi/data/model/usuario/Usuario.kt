@@ -15,6 +15,7 @@ data class Usuario(
     val nomeCompleto: String,
     val cpf: String,
     val dataNascimento: LocalDateTime,
+    val telefone: String,
     val saldo: Double,
     val ativo: Boolean,
     @OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY, cascade = [CascadeType.MERGE], orphanRemoval = true)
@@ -22,5 +23,5 @@ data class Usuario(
 ) {
 
 
-    constructor() : this(0, "", "", "", "", "", LocalDateTime.now(), 0.0, false)
+    constructor() : this(0, "", "", "", "", "", LocalDateTime.now(), "", 0.0, false)
 }

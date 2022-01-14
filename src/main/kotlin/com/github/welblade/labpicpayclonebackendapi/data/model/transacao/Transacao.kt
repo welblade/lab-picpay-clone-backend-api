@@ -5,7 +5,7 @@ import java.time.LocalDateTime
 import javax.persistence.*
 
 @Entity(name = "transacoes")
-data class Trasacao(
+data class Transacao(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long,

@@ -8,7 +8,7 @@ import java.time.LocalDateTime
 import javax.validation.constraints.NotNull
 
 @JsonInclude(value = JsonInclude.Include.NON_NULL)
-data class TrasacaoDto(
+data class TransacaoDto(
     @NotNull
     val codigo: String,
     @NotNull
@@ -20,5 +20,5 @@ data class TrasacaoDto(
     @NotNull
     val valor: Double,
     val cartaoCredito: CartaoCredito,
-    val isCartaoCredito: Boolean = false
+    val isCartaoCredito: Boolean = false,
 ) : Serializable
