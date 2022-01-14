@@ -1,6 +1,6 @@
 package com.github.welblade.labpicpayclonebackendapi.data.dto.mapper
 
-abstract class MappperBase<E, D> {
+abstract class MapperBase<E, D> {
     abstract fun paraDto(entidade: E): D
     abstract fun paraEntidade(dto: D): E
 
