@@ -13,7 +13,9 @@ import javax.validation.Valid
 
 @RestController
 @RequestMapping("/transacoes")
-class TransacaoResource(val transacaoService: TransacaoService) : ResourceBase<TransacaoDto>() {
+class TransacaoResource(
+    val transacaoService: TransacaoService
+    ) : ResourceBase<TransacaoDto>() {
 
     @PostMapping        
     fun salvar(
