@@ -5,10 +5,11 @@ import java.time.LocalDateTime
 import javax.persistence.*
 
 @Entity(name = "usuarios")
-data class Usuario(
+class Usuario(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long,
+    @Column(name="id", nullable = false)
+    val id: Long? = null,
     val login: String,
     val senha: String,
     val email: String,
@@ -20,8 +21,4 @@ data class Usuario(
     val ativo: Boolean,
     @OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY, cascade = [CascadeType.MERGE], orphanRemoval = true)
     val cartoesCredito: List<CartaoCredito> = listOf(),
-) {
-
-
-    constructor() : this(0, "", "", "", "", "", LocalDateTime.now(), "", 0.0, false)
-}
+)

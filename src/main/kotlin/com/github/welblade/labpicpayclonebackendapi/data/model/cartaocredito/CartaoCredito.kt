@@ -1,13 +1,15 @@
 package com.github.welblade.labpicpayclonebackendapi.data.model.cartaocredito
 
 import com.github.welblade.labpicpayclonebackendapi.data.model.usuario.Usuario
+import org.hibernate.Hibernate
 import javax.persistence.*
 
 @Entity(name = "cartoes_credito")
-data class CartaoCredito(
+class CartaoCredito(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long,
+    @Column(name="id", nullable = false)
+    val id: Long? = null,
     val numero: String,
     @Enumerated(EnumType.STRING)
     val bandeira: BandeiraCartao,
@@ -15,9 +17,5 @@ data class CartaoCredito(
     val numeroToken: String,
     @ManyToOne(cascade = [CascadeType.MERGE])
     @JoinColumn(name = "usuario_id", nullable = false)
-    val usuario: Usuario = Usuario(),
-) {
-    constructor() : this(0, "", BandeiraCartao.NULL, "", "")
-
-
-}
+    val usuario: Usuario,
+)

@@ -5,10 +5,11 @@ import java.time.LocalDateTime
 import javax.persistence.*
 
 @Entity(name = "transacoes")
-data class Transacao(
+class Transacao(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long,
+    @Column(name="id", nullable = false)
+    val id: Long? = null,
     val codigo: String,
     @ManyToOne(cascade = [CascadeType.MERGE])
     @JoinColumn(name = "usuario_origem", nullable = false)
@@ -18,8 +19,4 @@ data class Transacao(
     val destino: Usuario,
     val dataHora: LocalDateTime,
     val valor: Double,
-) {
-    constructor() : this(0, "", Usuario(), Usuario(), LocalDateTime.now(), 0.0) {
-
-    }
-}
+)
