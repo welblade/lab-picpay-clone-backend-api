@@ -17,5 +17,5 @@ data class CartaoCreditoDto(
     val numeroToken: String,
     @NotNull
     val usuario: UsuarioDto,
-    var isSalvo: Boolean = false
+    var isSalvar: Boolean = false
 ) : Serializable

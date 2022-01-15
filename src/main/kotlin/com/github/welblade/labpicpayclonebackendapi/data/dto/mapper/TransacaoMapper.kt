@@ -7,7 +7,9 @@ import org.modelmapper.PropertyMap
 import org.springframework.stereotype.Component
 
 @Component
-class TransacaoMapper: MapperBase<Transacao, TransacaoDto>() {
+class TransacaoMapper(
+    val userMapper: UsuarioMapper
+): MapperBase<Transacao, TransacaoDto>() {
     override fun paraDto(entidade: Transacao): TransacaoDto {
         val modelMapper = ModelMapper()
         modelMapper.addMappings(object: PropertyMap<Transacao, TransacaoDto>() {
@@ -17,10 +19,12 @@ class TransacaoMapper: MapperBase<Transacao, TransacaoDto>() {
     }
 
     override fun paraEntidade(dto: TransacaoDto): Transacao {
-        val modelMapper = ModelMapper()
-        modelMapper.addMappings(object: PropertyMap<TransacaoDto, Transacao>() {
-            override fun configure() {}
-        })
-        return modelMapper.map(dto, Transacao::class.java)
+        return Transacao(
+            codigo = dto.codigo,
+            origem = userMapper.paraEntidade(dto.origem),
+            destino = userMapper.paraEntidade(dto.destino),
+            dataHora = dto.dataHora,
+            valor = dto.valor
+        )
     }
 }
