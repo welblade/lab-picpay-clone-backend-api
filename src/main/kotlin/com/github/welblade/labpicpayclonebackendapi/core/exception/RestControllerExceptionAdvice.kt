@@ -1,4 +1,4 @@
-package com.github.welblade.labpicpayclonebackendapi.exception
+package com.github.welblade.labpicpayclonebackendapi.core.exception
 
 import com.github.welblade.labpicpayclonebackendapi.data.dto.model.erro.ErroDto
 import org.springframework.beans.factory.annotation.Autowired
