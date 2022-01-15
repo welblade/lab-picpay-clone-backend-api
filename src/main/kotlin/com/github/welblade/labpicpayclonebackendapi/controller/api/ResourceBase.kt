@@ -1,5 +1,6 @@
 package com.github.welblade.labpicpayclonebackendapi.controller.api
 
+import org.springframework.data.domain.Page
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.util.UriComponentsBuilder
@@ -32,6 +33,10 @@ abstract class ResourceBase<T> {
 
     fun listaDeItems(items: List<T>): ResponseEntity<List<T>> {
         return ResponseEntity.status(HttpStatus.OK).body(items)
+    }
+
+    fun listaDeItemsPaginada(itens: Page<T>): ResponseEntity<Page<T>> {
+        return ResponseEntity.status(HttpStatus.OK).body<Page<T>>(itens)
     }
 
     fun requisicaoMalSucedida(): ResponseEntity<T> {
