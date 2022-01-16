@@ -5,6 +5,9 @@ import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.util.UriComponentsBuilder
 
+const val RESOURCE_PAGE_SIZE = 20
+const val RESOURCE_INITIAL_PAGE = 0
+
 abstract class ResourceBase<T> {
     fun itemCriado(item: T): ResponseEntity<T> {
         return ResponseEntity.status(HttpStatus.CREATED).body(item)

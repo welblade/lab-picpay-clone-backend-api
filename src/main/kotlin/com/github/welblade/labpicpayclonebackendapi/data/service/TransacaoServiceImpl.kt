@@ -16,10 +16,10 @@ class TransacaoServiceImpl(
     val cartaoCreditoService: CartaoCreditoService
 ):TransacaoService {
     override fun processar(transacaoDto: TransacaoDto): TransacaoDto {
-        val transacao = salvar(transacaoDto)
+        val transacaoSalva = salvar(transacaoDto)
         cartaoCreditoService.salvar(transacaoDto.cartaoCredito)
-        usuarioService.atualizaSaldo(transacao, transacaoDto.isCartaoCredito)
-        return transacaoMapper.paraDto(transacao)
+        usuarioService.atualizaSaldo(transacaoSalva, transacaoDto.isCartaoCredito)
+        return transacaoMapper.paraDto(transacaoSalva)
     }
 
     override fun listar(paginacao: Pageable, login: String) : Page<TransacaoDto> {

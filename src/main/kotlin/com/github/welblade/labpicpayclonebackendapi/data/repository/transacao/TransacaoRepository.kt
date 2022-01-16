@@ -7,5 +7,4 @@ import org.springframework.data.jpa.repository.JpaRepository
 
 interface TransacaoRepository : JpaRepository<Transacao, Long> {
     fun findByOrigem_LoginOrDestino_Login(login: String, login1: String, paginacao: Pageable):Page<Transacao>
-
 }

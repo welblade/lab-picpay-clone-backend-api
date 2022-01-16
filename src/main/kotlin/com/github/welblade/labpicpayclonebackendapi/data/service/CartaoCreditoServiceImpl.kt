@@ -3,7 +3,9 @@ package com.github.welblade.labpicpayclonebackendapi.data.service
 import com.github.welblade.labpicpayclonebackendapi.data.dto.mapper.CartaoCreditoMapper
 import com.github.welblade.labpicpayclonebackendapi.data.dto.model.cartaocredito.CartaoCreditoDto
 import com.github.welblade.labpicpayclonebackendapi.data.repository.cartaocredito.CartaoCreditoRepository
+import org.springframework.stereotype.Service
 
+@Service
 class CartaoCreditoServiceImpl(
     private val cartaoCreditoRepository: CartaoCreditoRepository,
     private val cartaoCreditoMapper: CartaoCreditoMapper,
