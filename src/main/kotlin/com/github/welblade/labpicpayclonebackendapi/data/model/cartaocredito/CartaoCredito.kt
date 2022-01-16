@@ -1,7 +1,6 @@
 package com.github.welblade.labpicpayclonebackendapi.data.model.cartaocredito
 
 import com.github.welblade.labpicpayclonebackendapi.data.model.usuario.Usuario
-import org.hibernate.Hibernate
 import javax.persistence.*
 
 @Entity(name = "cartoes_credito")
